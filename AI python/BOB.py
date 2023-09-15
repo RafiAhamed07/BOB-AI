@@ -6,11 +6,14 @@ import webbrowser
 import os
 import random
 
+
 engine = pyttsx3.init('sapi5') #for voice
 voices = engine.getProperty('voices')
 # print(voices[0].id)
 engine.setProperty('voice', voices[0].id) # 0 for boy & 1 for girl
-
+boy = "BOB"
+girl = "Jeni"
+user_name = "" #pleasr place you system user name here
 
 def speak(audio):
     engine.say(audio)
@@ -27,7 +30,7 @@ def wishMe():
     else:
         speak("Good Evening")
         
-    speak("Sir I am BOB. Please tell me how may I help you")
+    speak(f"Sir I am {boy}. Please tell me how may I help you")
 
 def takeCommand():
     '''It takes microphone input from the users  and returns string outpu'''
@@ -90,7 +93,7 @@ if __name__ == "__main__":
             speak(f"Sir the time is{strTime}")
         
         elif 'open code' in query:
-            codePath = "C:\\Users\\AR Gadget\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            codePath = f"C:\\Users\\{user_name}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(codePath)
         elif 'quit' in query:
             speak("Shouting down....")
@@ -106,5 +109,3 @@ if __name__ == "__main__":
             speak("Welcome sir.This is my duty")
         elif 'how are you' in query:
             speak("I am good sir.How can I help you sir?")
-
-         
